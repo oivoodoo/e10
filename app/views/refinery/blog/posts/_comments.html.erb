@@ -6,12 +6,6 @@
 
   <% if Refinery::Blog::Post.comments_allowed? %>
 
-    <% flash.each do |key, value| %>
-      <div id='flash' class="flash flash_<%= key %>">
-        <%= value %>
-      </div>
-    <% end %>
-
     <h2>Оставьте комментарий</h2>
     <%= form_for [refinery, :blog, @comment], :html => { :class => "form" } do |f| %>
       <%= render "/refinery/admin/error_messages",
@@ -21,6 +15,13 @@
         <%= required_label_tag :name, "Имя:", :class => 'placeholder-fallback' %>
         <div class="text-field">
           <%= f.text_field :name, :class => 'form-text', :required => :required, :placeholder => "Ваше Имя" %>
+        </div>
+      </div>
+      <div class="form-item">
+        <%= required_label_tag :email, "Имэйл:", :class => 'placeholder-fallback' %>
+        <div class="text-field">
+          <%= f.email_field :email, :class => 'form-text', :required => 'required',
+            :placeholder => "Ваша E-почта" if Refinery::Inquiries.show_placeholders %>
         </div>
       </div>
       <div class='form-item'>
