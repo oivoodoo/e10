@@ -1,7 +1,7 @@
 production:
   adapter: postgresql
-  host: 172.17.0.19
-  user: 'root'
+  host: 198.211.127.34
+  username: 'root'
   password: 'WBOY64SLe7tYv1ST'
   database: 'db'
   port: 49157
