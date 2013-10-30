@@ -217,3 +217,5 @@ select {font:14px Arial, Helvetica, sans-serif; color:#000; background:#fff; pad
 .jspHorizontalBar .jspArrow {width:16px; float:left; height:100%;}
 .jspVerticalBar .jspArrow:focus {outline:none;}
 .jspCorner {background:#eeeef4; float:left; height:100%;}
+
+.comments .form { background: none !important }

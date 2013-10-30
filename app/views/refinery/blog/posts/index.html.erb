@@ -1,0 +1,17 @@
+<% content_for :body do %>
+  <%= raw @page.content_for(Refinery::Pages.default_parts.first.to_sym) if Refinery::Pages.default_parts.any? %>
+
+  <% if @posts.any? %>
+    <div class="catalog">
+      <div class="items">
+        <ul>
+          <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+        </ul>
+        <%= will_paginate @posts %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render "/refinery/content_page", :hide_sections => [:body_content_title] %>
+

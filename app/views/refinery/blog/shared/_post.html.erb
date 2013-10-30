@@ -1,0 +1,7 @@
+<% if post.live? %>
+  <li>
+    <h3><%= link_to post.title, refinery.blog_post_path(post) %></h3>
+    <p><%= blog_post_teaser(post) %></p>
+  </li>
+<% end %>
+

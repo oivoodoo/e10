@@ -1,0 +1,39 @@
+<div class="contacts comments">
+  <% if (comments = @post.comments.approved).any? %>
+    <h2><%= t('title', :scope => 'refinery.blog.posts.show.comments') %></h2>
+    <%= render :partial => "comment", :collection => comments %>
+  <% end %>
+
+  <% if Refinery::Blog::Post.comments_allowed? %>
+
+    <% flash.each do |key, value| %>
+      <div id='flash' class="flash flash_<%= key %>">
+        <%= value %>
+      </div>
+    <% end %>
+
+    <h2>Оставьте комментарий</h2>
+    <%= form_for [refinery, :blog, @comment], :html => { :class => "form" } do |f| %>
+      <%= render "/refinery/admin/error_messages",
+                 :object => f.object,
+                 :include_object_name => true %>
+      <div class='form-item'>
+        <%= required_label_tag :name, "Имя:", :class => 'placeholder-fallback' %>
+        <div class="text-field">
+          <%= f.text_field :name, :class => 'form-text', :required => :required, :placeholder => "Ваше Имя" %>
+        </div>
+      </div>
+      <div class='form-item'>
+        <%= required_label_tag :message, "Сообщение:", :class => 'placeholder-fallback' %>
+        <div class="text-field">
+          <%= f.text_area :message, :rows => 10, :cols => 30, :required => :required %>
+        </div>
+      </div>
+
+      <div class="form-action">
+        <div class="btn-a"><div class="i"><%= f.submit "Отправить" %></div></div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
