@@ -1,0 +1,19 @@
+<%
+  presenter = Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self)
+  presenter.menu_tag = :li
+%>
+
+<div class="header">
+	<div class="inner">
+    <div class="logo"><%= link_to Refinery::Core.site_name, refinery.root_path %></div>
+		<div class="nav">
+			<ul>
+        <%= presenter.to_html %>
+			</ul>
+		</div>
+		<div class="contact">
+      <% contact_us_page = Refinery::Page.where(:link_url => '/contact').first %>
+      <%= link_to contact_us_page.title, contact_us_page.link_url %>
+		</div>
+	</div>
+</div>

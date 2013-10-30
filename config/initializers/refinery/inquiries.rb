@@ -3,7 +3,7 @@ Refinery::Inquiries.configure do |config|
   # config.show_contact_privacy_link = true
 
   # Configure whether to show phone number field
-  # config.show_phone_number_field = true
+  config.show_phone_number_field = false
 
   # Configure whether to show form field placeholders
   # config.show_placeholders = true
@@ -12,5 +12,5 @@ Refinery::Inquiries.configure do |config|
   # config.send_notifications_for_inquiries_marked_as_spam = false
 
   # Configure name in 'from' email address
-  # config.from_name = "no-reply"
+  config.from_name = "e10"
 end

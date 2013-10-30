@@ -1,0 +1,65 @@
+<div class="contacts">
+  <div class="head">
+    <div class="text">
+      <p>Бла-бла-бла тексты по теме, может его и не будет.<br>
+      Но вы всё же напишите нам о ваших чувствах:</p>
+    </div>
+    <div class="email">
+      Электронная почта:
+      <ul>
+        <li><a href="mailto:incoming@e10.by">incoming@e10.by</a></li>
+      </ul>
+    </div>
+    <div class="phones">
+      Телефоны:
+      <ul>
+        <li class="velcom">8 029 666-55-11</li>
+        <li class="mts">8 033 539-78-31</li>
+      </ul>
+    </div>
+  </div>
+
+  <%= form_for [refinery, :inquiries, @inquiry], :html => { :class => "form" } do |f| %>
+    <%= render :partial => "/refinery/admin/error_messages",
+               :locals => {
+                 :object => @inquiry,
+                 :include_object_name => true
+               } %>
+
+    <div class="form-item">
+      <%= required_label_tag :name, "Имя:", :class => 'placeholder-fallback' %>
+      <div class="text-field">
+        <%= f.text_field :name, :class => 'form-text', :required => 'required',
+          :placeholder => "Ваше Имя" if Refinery::Inquiries.show_placeholders %>
+      </div>
+    </div>
+
+    <div class="form-item">
+      <%= required_label_tag :email, "Имэйл:", :class => 'placeholder-fallback' %>
+      <div class="text-field">
+        <%= f.email_field :email, :class => 'form-text', :required => 'required',
+          :placeholder => "Ваша E-почта" if Refinery::Inquiries.show_placeholders %>
+      </div>
+    </div>
+
+    <div class='form-item'>
+      <%= required_label_tag :message, "Сообщение:", :class => 'placeholder-fallback' %>
+      <div class="text-field">
+        <%= f.text_area :message, :rows => 10, :cols => 30, :required => 'required' if Refinery::Inquiries.show_placeholders %>
+      </div>
+    </div>
+
+    <% if Refinery::Inquiries.show_phone_number_field %>
+      <div class="field">
+        <%= f.label :phone, :class => 'placeholder-fallback' %>
+        <%= f.text_field :phone, :class => 'text phone',
+          :placeholder => t('phone', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders %>
+      </div>
+    <% end %>
+
+    <div class="form-action">
+      <div class="btn-a"><div class="i"><%= f.submit "Отправить" %></div></div>
+    </div>
+  <% end %>
+</div>
+
