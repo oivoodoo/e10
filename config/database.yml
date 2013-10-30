@@ -1,3 +1,11 @@
+production:
+  host: 172.17.0.19
+  user: 'root'
+  password: 'WBOY64SLe7tYv1ST'
+  database: 'db'
+  port: 49157
+  pool: 5
+
 development:
   adapter: postgresql
   encoding: unicode
