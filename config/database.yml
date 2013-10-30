@@ -1,4 +1,5 @@
 production:
+  adapter: postgresql
   host: 172.17.0.19
   user: 'root'
   password: 'WBOY64SLe7tYv1ST'
