@@ -5,8 +5,10 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'pg'
+
 group :development, :test do
-  gem 'pg'
+  gem 'debugger'
 end
 
 
@@ -48,4 +50,6 @@ gem 'refinerycms-blog', '~> 2.1.0'
 gem 'refinerycms-inquiries', github: 'refinery/refinerycms-inquiries'
 #  gem 'refinerycms-search', '~> 2.1.0'
 gem 'refinerycms-page-images', '~> 2.1.0'
+
+gem "globalize3", "0.3.0"
 
