@@ -1,0 +1,19 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: e10_cms_development
+  pool: 5
+  username: e10
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: e10_cms_test
+  pool: 5
+  username: e10
+  password:
+
