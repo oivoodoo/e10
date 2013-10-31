@@ -1,5 +1,9 @@
 require 'bundler/capistrano'
 
+require "rvm/capistrano"
+set :rvm_ruby_string, '2.0.0'
+set :rvm_type, :user
+
 set :rails_env, 'production'
 set :stage, 'production'
 
@@ -7,6 +11,9 @@ set :user,        "rails"
 set :application, "e10.by"
 set :repository,  "git@github.com:oivoodoo/e10.git"
 set :scm,         :git
+
+set :use_sudo,    false
+set :deploy_to,   "/home/rails"
 
 ssh_options[:forward_agent] = true
 
