@@ -5,10 +5,13 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
-gem 'foreman'
+group :production do
+  gem 'mysql2'
+end
 
 group :development, :test do
+  gem 'pg'
+  gem 'foreman'
   gem 'debugger'
 end
 
@@ -54,4 +57,10 @@ gem 'refinerycms-inquiries', github: 'refinery/refinerycms-inquiries'
 gem 'refinerycms-page-images', '~> 2.1.0'
 
 gem "globalize3", "0.3.0"
+
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-unicorn', require: false
+  gem 'rvm-capistrano',     require: false
+end
 

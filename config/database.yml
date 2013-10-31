@@ -1,11 +1,9 @@
 production:
-  adapter: postgresql
-  host: 198.211.127.34
-  username: 'root'
-  password: 'WBOY64SLe7tYv1ST'
-  database: 'db'
-  port: 49157
-  pool: 5
+  adapter: mysql2
+  host: localhost
+  username: 'rails'
+  password: 'yv4auY6myt'
+  database: 'rails'
 
 development:
   adapter: postgresql
