@@ -1,10 +1,7 @@
 require 'bundler/capistrano'
-require 'rvm/capistrano'
 
 set :rails_env, 'production'
 set :stage, 'production'
-set :rvm_ruby_string, 'ruby 1.9.3p429'
-set :rvm_type, :user
 
 set :user,        "rails"
 set :application, "e10.by"
