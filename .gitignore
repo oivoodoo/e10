@@ -94,4 +94,5 @@ capybara-*html
 vendor/extensions/**/spec/dummy
 
 config/database.yml
+public/assets/
 
