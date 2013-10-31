@@ -23,3 +23,12 @@ role :db,  "146.185.137.83", :primary => true # This is where Rails migrations w
 
 load 'deploy/assets'
 
+namespace :deploy do
+  desc "Symlink shared configs and folders on each release."
+  task :symlink_shared do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
+end
+
+after 'deploy:update_code', 'deploy:symlink_shared'
+
